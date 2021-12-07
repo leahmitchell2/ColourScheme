@@ -48,7 +48,7 @@ const ShowBalance = ({ currentUser, setBalance, setBalanceID, balance }) => {
     <div className="showBalance">
       {currentUser.email}
       <br />
-      balance: ${balance}
+      balance: ${balance.toFixed(2)}
     </div>
   );
 };

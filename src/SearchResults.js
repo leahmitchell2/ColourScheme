@@ -36,7 +36,7 @@ class SearchResults extends Component {
                 </div>
 
                 <div className="price">
-                  <p style={{ margin: "3px" }}>${s.rates.buy}</p>
+                  <p style={{ margin: "3px" }}>${s.rates.buy.toFixed(2)}</p>
                   <button
                     className="buybtn"
                     onClick={() => this.props.buyStock(key)}
@@ -45,7 +45,7 @@ class SearchResults extends Component {
                   </button>
                 </div>
                 <div className="price">
-                  <p style={{ margin: "3px" }}>{s.rates.sell}</p>
+                  <p style={{ margin: "3px" }}>${s.rates.sell.toFixed(2)}</p>
                   <button
                     style={{ background: "red", color: "white" }}
                     className="sellbtn"

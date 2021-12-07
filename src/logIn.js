@@ -38,7 +38,7 @@ const signUp = (auth, email, password, setTheAuthUser) => {
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
-
+      alert(errorMessage);
       // ..
     });
 };
@@ -47,7 +47,6 @@ const signIn = (auth, email, password, setTheAuthUser) => {
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       // Signed in
-
       const user = userCredential.user;
       console.log("HERE SIGNED IN USER");
       console.log(user);
@@ -59,8 +58,7 @@ const signIn = (auth, email, password, setTheAuthUser) => {
       const errorMessage = error.message;
       console.log("Not valid");
       console.log(errorMessage);
-      const user = null;
-      console.log(user);
+      alert(errorMessage);
     });
 };
 
@@ -72,7 +70,10 @@ export default function ({ setTheAuthUser, setBalance, balance }) {
   return (
     <div>
       {console.log}
-      <h1>--App Name and Logo--</h1>
+      <h1>--Logo--</h1>
+      <h1>
+        stocks<text style={{ color: "forestgreen" }}>U</text>p
+      </h1>
       <img
         className="background"
         src={avatar}
@@ -81,6 +82,7 @@ export default function ({ setTheAuthUser, setBalance, balance }) {
         height="500px"
       />
       <h1>Log In</h1>
+
       <form
         onSubmit={(e) => {
           e.preventDefault();

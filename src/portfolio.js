@@ -13,6 +13,12 @@ import { db } from "./firebase-config";
 export default function ({ currentUser }) {
   const [stockies, setStockies] = useState([]);
 
+  function getBuyTotal(acc, obj) {
+    console.log("TOTALING IN PORTFOLIO");
+    console.log(obj.buy);
+    console.log(acc);
+    return acc + obj.buy;
+  }
   useEffect(() => {
     const q = query(
       collection(db, "Stockies"),
@@ -38,6 +44,8 @@ export default function ({ currentUser }) {
   return (
     <div>
       <h1>PORTFOLIO</h1>
+      Total Wealth:$
+      {stockies.reduce(getBuyTotal, 0.0).toFixed(2)}
       <div className="container">
         <div className="orders">
           <h2>BUYING:</h2>
@@ -79,7 +87,6 @@ export default function ({ currentUser }) {
         </div>
       </div>
       <br />
-
       {stockies.map((s, key) => (
         <div className="li" key={s.id}>
           <div className="buttons" onMouseOver={this.boxMouseOverHandler}>
@@ -113,7 +120,6 @@ export default function ({ currentUser }) {
           </div>
         </div>
       ))}
-
       <p>add stocks to add to your portfolio and keep track of them here!!</p>
     </div>
   );
